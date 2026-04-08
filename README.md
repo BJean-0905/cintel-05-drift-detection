@@ -1,6 +1,6 @@
 # cintel-05-drift-detection
 
-[![Python 3.14+](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](#)
+[![Python 3.14+](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](https://www.python.org/downloads/)
 [![MIT](https://img.shields.io/badge/license-see%20LICENSE-yellow.svg)](./LICENSE)
 
 > Professional Python project for continuous intelligence.
@@ -97,9 +97,6 @@ The commands below are used in the workflow guide above.
 They are provided here for convenience.
 
 Follow the guide for the **full instructions**.
-
-<details>
-<summary>Show command reference</summary>
 
 ### In a machine terminal (open in your `Repos` folder)
 
