@@ -44,8 +44,8 @@ for detecting changes in system behavior.
 
 The example pipeline reads system metrics from:
 
-`data/reference_metrics_case.csv`
-`data/current_metrics_case.csv`
+`data/reference_metrics_bjean.csv`
+`data/current_metrics_bjean.csv`
 
 Each row represents one observation of system behavior.
 The pipeline compares the reference and current datasets,
@@ -123,6 +123,7 @@ git add -A
 uvx pre-commit run --all-files
 
 uv run python -m cintel.case_drift_detector
+uv run python -m cintel.case_drift_detector_bjean
 
 uv run ruff format .
 uv run ruff check . --fix
