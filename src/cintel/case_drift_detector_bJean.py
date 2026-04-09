@@ -131,9 +131,12 @@ def main() -> None:
 
     reference_summary_df = reference_df.select(
         [
-            pl.col("requests").mean().alias("reference_avg_requests"),
-            pl.col("errors").mean().alias("reference_avg_errors"),
-            pl.col("total_latency_ms").mean().alias("reference_avg_latency_ms"),
+            pl.col("requests").mean().round(0).alias("reference_avg_requests"),
+            pl.col("errors").mean().round(0).alias("reference_avg_errors"),
+            pl.col("total_latency_ms")
+            .mean()
+            .round(0)
+            .alias("reference_avg_latency_ms"),
         ]
     )
 

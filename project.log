@@ -34,7 +34,7 @@
 2026-04-07 19:55:04 | INFO | P5 | Let's make that a bit nicer to read...
 2026-04-07 19:55:04 | INFO | P5 | All remaining steps are about creating a nicer display.
 2026-04-07 19:55:04 | INFO | P5 | ========================
-2026-04-07 19:55:04 | INFO | P5 | Drift Detection Process: 
+2026-04-07 19:55:04 | INFO | P5 | Drift Detection Process:
 2026-04-07 19:55:04 | INFO | P5 | ========================
 2026-04-07 19:55:04 | INFO | P5 | 1. Summarize each period with means.
 2026-04-07 19:55:04 | INFO | P5 | 2. Compute difference of means.
