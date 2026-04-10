@@ -1,7 +1,7 @@
 """
 case_drift_detector.py - Project script (example).
 
-Author: Denise Case,Britany Kline
+Author: Denise Case, Britany Kline
 Date: 2026-03
 
 Reference and Current System Metrics Data
@@ -131,20 +131,37 @@ def main() -> None:
 
     reference_summary_df = reference_df.select(
         [
-            pl.col("requests").mean().round(0).alias("reference_avg_requests"),
-            pl.col("errors").mean().round(0).alias("reference_avg_errors"),
+            pl.col("requests")
+            .mean()
+            .round(0)
+            .cast(pl.Int64)
+            .alias("reference_avg_requests"),
+            pl.col("errors")
+            .mean()
+            .round(0)
+            .cast(pl.Int64)
+            .alias("reference_avg_errors"),
             pl.col("total_latency_ms")
             .mean()
             .round(0)
+            .cast(pl.Int64)
             .alias("reference_avg_latency_ms"),
         ]
     )
 
     current_summary_df = current_df.select(
         [
-            pl.col("requests").mean().alias("current_avg_requests"),
-            pl.col("errors").mean().alias("current_avg_errors"),
-            pl.col("total_latency_ms").mean().alias("current_avg_latency_ms"),
+            pl.col("requests")
+            .mean()
+            .round(0)
+            .cast(pl.Int64)
+            .alias("current_avg_requests"),
+            pl.col("errors").mean().round(0).cast(pl.Int64).alias("current_avg_errors"),
+            pl.col("total_latency_ms")
+            .mean()
+            .round(0)
+            .cast(pl.Int64)
+            .alias("current_avg_latency_ms"),
         ]
     )
 
