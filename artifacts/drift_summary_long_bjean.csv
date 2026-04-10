@@ -9,5 +9,8 @@ requests_mean_difference,36
 errors_mean_difference,4
 latency_mean_difference_ms,1835
 requests_is_drifting_flag,True
+requests_drift_direction,Upward Drift
 errors_is_drifting_flag,True
+errors_drift_direction,Upward Drift
 latency_is_drifting_flag,True
+latency_drift_direction,Upward Drift

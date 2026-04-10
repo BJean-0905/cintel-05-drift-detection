@@ -245,13 +245,40 @@ def main() -> None:
         pl.col("requests_mean_difference").abs() > REQUESTS_DRIFT_THRESHOLD
     ).alias("requests_is_drifting_flag")
 
+    requests_drift_direction_recipe: pl.Expr = (
+        pl.when(pl.col("requests_mean_difference") > 0)
+        .then(pl.lit("Upward Drift"))
+        .when(pl.col("requests_mean_difference") < 0)
+        .then(pl.lit("Downward Drift"))
+        .otherwise(pl.lit("No Drift"))
+        .alias("requests_drift_direction")
+    )
+
     errors_is_drifting_flag_recipe: pl.Expr = (
         pl.col("errors_mean_difference").abs() > ERRORS_DRIFT_THRESHOLD
     ).alias("errors_is_drifting_flag")
 
+    errors_drift_direction_recipe: pl.Expr = (
+        pl.when(pl.col("errors_mean_difference") > 0)
+        .then(pl.lit("Upward Drift"))
+        .when(pl.col("errors_mean_difference") < 0)
+        .then(pl.lit("Downward Drift"))
+        .otherwise(pl.lit("No Drift"))
+        .alias("errors_drift_direction")
+    )
+
     latency_is_drifting_flag_recipe: pl.Expr = (
         pl.col("latency_mean_difference_ms").abs() > LATENCY_DRIFT_THRESHOLD
     ).alias("latency_is_drifting_flag")
+
+    latency_drift_direction_recipe: pl.Expr = (
+        pl.when(pl.col("latency_mean_difference_ms") > 0)
+        .then(pl.lit("Upward Drift"))
+        .when(pl.col("latency_mean_difference_ms") < 0)
+        .then(pl.lit("Downward Drift"))
+        .otherwise(pl.lit("No Drift"))
+        .alias("latency_drift_direction")
+    )
 
     # ----------------------------------------------------
     # STEP 5.1: APPLY THE DRIFT FLAG RECIPES TO EXPAND THE DATAFRAME
@@ -259,8 +286,11 @@ def main() -> None:
     drift_df = drift_df.with_columns(
         [
             requests_is_drifting_flag_recipe,
+            requests_drift_direction_recipe,
             errors_is_drifting_flag_recipe,
+            errors_drift_direction_recipe,
             latency_is_drifting_flag_recipe,
+            latency_drift_direction_recipe,
         ]
     )
 
