@@ -33,9 +33,9 @@ Questions to Consider
 
 Paths (relative to repo root)
 
-    INPUT FILE: data/reference_metrics_case.csv
-    INPUT FILE: data/current_metrics_case.csv
-    OUTPUT FILE: artifacts/drift_summary_case.csv
+    INPUT FILE: data/reference_metrics_bjean.csv
+    INPUT FILE: data/current_metrics_bjean.csv
+    OUTPUT FILE: artifacts/drift_summary_bjean.csv
 
 Terminal command to run this file from the root project folder
 
