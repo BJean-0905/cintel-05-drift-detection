@@ -1,13 +1,13 @@
 field_name,field_value
-reference_avg_requests,128
+reference_avg_requests,129
 reference_avg_errors,2
-reference_avg_latency_ms,3835
+reference_avg_latency_ms,3851
 current_avg_requests,143
 current_avg_errors,6
 current_avg_latency_ms,5574
-requests_mean_difference,15
+requests_mean_difference,14
 errors_mean_difference,4
-latency_mean_difference_ms,1739
+latency_mean_difference_ms,1723
 requests_is_drifting_flag,False
 requests_drift_direction,No Drift
 errors_is_drifting_flag,True
