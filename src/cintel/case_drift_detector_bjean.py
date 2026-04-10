@@ -246,9 +246,9 @@ def main() -> None:
     ).alias("requests_is_drifting_flag")
 
     requests_drift_direction_recipe: pl.Expr = (
-        pl.when(pl.col("requests_mean_difference") > 0)
+        pl.when(pl.col("requests_mean_difference") > REQUESTS_DRIFT_THRESHOLD)
         .then(pl.lit("Upward Drift"))
-        .when(pl.col("requests_mean_difference") < 0)
+        .when(pl.col("requests_mean_difference") < -REQUESTS_DRIFT_THRESHOLD)
         .then(pl.lit("Downward Drift"))
         .otherwise(pl.lit("No Drift"))
         .alias("requests_drift_direction")
@@ -259,9 +259,9 @@ def main() -> None:
     ).alias("errors_is_drifting_flag")
 
     errors_drift_direction_recipe: pl.Expr = (
-        pl.when(pl.col("errors_mean_difference") > 0)
+        pl.when(pl.col("errors_mean_difference") > ERRORS_DRIFT_THRESHOLD)
         .then(pl.lit("Upward Drift"))
-        .when(pl.col("errors_mean_difference") < 0)
+        .when(pl.col("errors_mean_difference") < -ERRORS_DRIFT_THRESHOLD)
         .then(pl.lit("Downward Drift"))
         .otherwise(pl.lit("No Drift"))
         .alias("errors_drift_direction")
@@ -272,9 +272,9 @@ def main() -> None:
     ).alias("latency_is_drifting_flag")
 
     latency_drift_direction_recipe: pl.Expr = (
-        pl.when(pl.col("latency_mean_difference_ms") > 0)
+        pl.when(pl.col("latency_mean_difference_ms") > LATENCY_DRIFT_THRESHOLD)
         .then(pl.lit("Upward Drift"))
-        .when(pl.col("latency_mean_difference_ms") < 0)
+        .when(pl.col("latency_mean_difference_ms") < -LATENCY_DRIFT_THRESHOLD)
         .then(pl.lit("Downward Drift"))
         .otherwise(pl.lit("No Drift"))
         .alias("latency_drift_direction")

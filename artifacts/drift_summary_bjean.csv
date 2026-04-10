@@ -1,2 +1,2 @@
 reference_avg_requests,reference_avg_errors,reference_avg_latency_ms,current_avg_requests,current_avg_errors,current_avg_latency_ms,requests_mean_difference,errors_mean_difference,latency_mean_difference_ms,requests_is_drifting_flag,requests_drift_direction,errors_is_drifting_flag,errors_drift_direction,latency_is_drifting_flag,latency_drift_direction
-128,2,3835,164,6,5670,36,4,1835,true,Upward Drift,true,Upward Drift,true,Upward Drift
+128,2,3835,143,6,5574,15,4,1739,false,No Drift,true,Upward Drift,true,Upward Drift
